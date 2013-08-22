@@ -1,0 +1,63 @@
+#config defaultToCurrentScreen true
+config modalEscapeKey esc
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config focusPreferSameApp false
+config focusCheckWidthMax 2880
+config windowHintsIgnoreHiddenWindows false
+config windowHintsShowIcons true
+config windowHintsSpread true
+#config windowHintsOrder persist
+
+#focus
+bind h:alt focus left
+bind l:alt focus right
+bind k:alt focus up
+bind j:alt focus down
+bind i:alt hint UIOPHJKLNM
+bind o:alt focus behind
+
+#app focus
+bind t:f;alt focus 'iTerm'
+bind f:f;alt focus 'Firefox'
+bind o:f;alt focus 'Microsoft Outlook'
+bind p:f;alt focus 'Microsoft Powerpoint'
+bind l:f;alt focus 'Microsoft Lync'
+
+#placement
+bind h:shift;alt chain push left bar-resize:screenSizeX/2 | throw prev
+#bind h:shift;alt push left  bar-resize:screenSizeX/2
+bind l:shift;alt chain push right bar-resize:screenSizeX/2 | throw next
+#bind l:shift;alt push right bar-resize:screenSizeX/2
+bind f:shift;alt push up    bar-resize:screenSizeY
+bind k:shift;alt push up    bar-resize:screenSizeY
+bind j:shift,alt move screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
+bind u:shift;alt corner top-left resize:screenSizeX/2;screenSizeY/2
+bind i:shift;alt corner bottom-left resize:screenSizeX/2;screenSizeY/2
+bind o:shift;alt corner bottom-right resize:screenSizeX/2;screenSizeY/2
+bind p:shift;alt corner top-right resize:screenSizeX/2;screenSizeY/2
+
+
+#resize
+bind h:r;shift;alt:toggle resize -10% +0
+bind l:r;shift;alt:toggle resize +10% +0
+bind k:r;shift;alt:toggle resize +0   -10%
+bind j:r;shift;alt:toggle resize +0   +10%
+
+#nudge
+bind h:n;shift;alt:toggle nudge -10% +0
+bind l:n;shift;alt:toggle nudge +10% +0
+bind k:n;shift;alt:toggle nudge +0   -10%
+bind j:n;shift;alt:toggle nudge +0   +10%
+
+
+bind u:alt undo
+
+bind g:shift;alt grid
+
+bind m:alt hide current
+
+bind return:alt shell path:~/.scripts/ '/usr/bin/osascript iterm_new_window.scpt'
+bind return:shift;alt shell path:~/.scripts/ '/usr/bin/osascript ipython_qtgui.scpt'
+
+bind tab:cmd switch

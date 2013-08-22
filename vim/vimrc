@@ -1,0 +1,166 @@
+set nocompatible "stop vim from behaving in a strongly vi-compatable way
+set hidden
+
+source ~/.vim/vundles.vim
+
+let mapleader = ","
+
+"filetype configuration
+filetype plugin indent on
+
+"colors
+syntax on
+"colorscheme wombat 
+colorscheme mustang 
+
+"indentation
+set ai
+set si
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
+"scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(10, 100, 1)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(10, 100, 1)<CR>
+
+"windows
+set equalalways
+set splitbelow splitright
+:noremap <leader>v :vsp^M^W^W<cr>
+:noremap <leader>h :split^M^W^W<cr>
+
+"shell
+map <leader>z :ConqueTerm zsh<cr>
+map <leader>zh :ConqueTermSplit zsh<cr>
+map <leader>zv :ConqueTermVSplit zsh<cr>
+map <leader>zt :ConqueTermTab zsh<cr>
+
+"alternate
+map <leader>a :A<cr>
+map <leader>ah :AS<cr>
+map <leader>av :AV<cr>
+map <leader>at :AT<cr>
+
+"tabs
+source ~/.vim/GenerateTabLine.vim
+set tabline=%!GenerateTabLine()
+set showtabline=2 "always show tabline
+map <leader>t :tabnew<cr>
+map t gt
+map T gT
+
+"search
+set hlsearch  "highlight search
+set incsearch "incremental search
+set smartcase "Ignore case when searching lowercase
+
+"backups
+set undofile
+set undodir=~/.vim/undo//
+set nobackup
+set nowb
+set noswapfile
+
+"command auto complete
+set wildmenu
+set wildmode=list:longest
+
+"session options
+set sessionoptions=blank,buffers,curdir,help,resize,tabpages,winsize
+nmap <leader>SS :wa<cr>:mksession! ~/.vim-tmp/session/
+nmap <leader>SO :wa<cr>:so ~/.vim-tmp/session/
+nmap <leader>SD :!rm ~/.vim-tmp/session/
+
+"misc options
+set clipboard=unnamed "use system clipboard
+set linebreak "wrap  at word
+set scrolloff=3 "pad cursor location
+set number "show line numbers
+set matchpairs+=<:>,$:$ "add to matching pairs
+set vb t_vb= "turn off the bell
+set mouse=a "enable the mouse
+
+"navigate wrapped lines
+set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
+map k gk
+map j gj
+
+"break out of insert mode
+imap jj <esc>
+imap kk <esc>
+imap lll <esc>
+imap hhh <esc>
+imap www <esc>
+imap bbb <esc>
+
+"enter creates new lines
+nmap <Enter> o<esc>
+"space inserts spaces
+"nmap <space> i <esc>l
+"insert a single character with control+i
+nmap <c-i> i <esc>r
+
+"toggle spellchecking
+nmap <leader>s :setlocal spell! spell?<cr>
+
+"allow for saving of files as sudo
+cmap w!! %!sudo tee > /dev/null %
+
+"x doesn't yank text when in normal mode
+nnoremap x "_x
+nnoremap X "_X
+
+"make Y yank to the end of the line
+nnoremap Y y$
+
+"nerd tree mappings
+:noremap <leader>n :NERDTreeToggle<cr>
+
+"fugitive mappings
+map <leader>gd :Gdiff<cr>
+map <leader>gch :Gsplit<cr>
+map <leader>gcv :Gvsplit<cr>
+map <leader>gs :Gstatus<cr>
+map <leader>gb :Gblame<cr>
+
+"powerline options
+"let g:Powerline_symbols = 'fancy'
+set laststatus=2
+
+"YouCompleteMe options
+let g:ycm_global_ycm_extra_conf = '/Users/kmanville/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+"reload vim when vimrc is modified
+augroup myvimrc
+	au!
+	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+"save position
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+"refresh all buffers
+function! RefreshAll()
+	set noconfirm
+	bufdo e!
+	set confirm
+endfunction
+
+nmap <leader>r :call RefreshAll()<cr>
+
+"
+"let g:atp_Python = "/usr/local/bin/python"
+let g:tex_flavor='latex'
+au BufWritePost *.tex silent call Tex_CompileLatex()
+let g:Tex_TreatMacViewerAsUNIX = 1
+let g:Tex_ExecuteUNIXViewerInForeground = 1
+let g:Tex_ViewRule_ps = 'open -a Preview'
+let g:Tex_ViewRule_pdf = 'open -a Preview'
+
+source ~/.vim/ToggleHex.vim
+nnoremap <c-h> :Hexmode<cr>
