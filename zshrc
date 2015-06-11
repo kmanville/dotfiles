@@ -1,26 +1,9 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# prefer homebrew version
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 export CLICOLOR=1
 ZSH_THEME="fishy"
 
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -28,17 +11,15 @@ CASE_SENSITIVE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(history-substring-search mvn ant osx brew python rsync screen svn)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:.
-#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/opt/cuda-toolkit/bin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl
-#export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:.:$NDKROOT
+export VERSIONER_PYTHON_PREFER_64_BIT=yes
+export VERSIONER_PYTHON_PREFER_32_BIT=no
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+export NDKROOT=/usr/local/Cellar/android-ndk/r9c
 
 PROMPT="%2~: "
 
@@ -50,11 +31,13 @@ function displab() {
 
 function proxyon() {
 	export http_proxy=http://gatekeeper-w.mitre.org:80
+	export https_proxy=http://gatekeeper-w.mitre.org:80
 	export HTTP_PROXY=http://gatekeeper-w.mitre.org:80
 }
 
 function proxyoff() {
 	unset http_proxy
+	unset https_proxy
 	unset HTTP_PROXY
 }
 
@@ -75,10 +58,15 @@ alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
 alias ls='ls -GFh'
 alias ll='ls -l'
 alias la='ls -a'
-alias ld='ls .*'
 alias gr='grep -r'
 
-alias tar='gnutar'
+function gd(){
+	rel=$(dirs -p | sed -n $1p)
+	echo $rel
+	cd `greadlink -m $rel`
+}
+
+alias matlab='/Applications/MATLAB_R2014b.app/bin/matlab'
 
 #sane defaults
 #alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -p'
@@ -86,8 +74,10 @@ alias vim='vim -p'
 alias df='df -h'
 alias du='du -ch'
 alias mkdir='mkdir -p'
+alias tar='gtar -k '
+alias ssh='ssh -Y'
 
-alias cmake='cmake -H. -Bbuild'
+#alias cmake='cmake -H. -Bbuild'
 
 #common directories
 alias ..='cd ..'
@@ -105,3 +95,7 @@ export WORKON_HOME=~/.venvs
 __git_files () { 
     _wanted files expl 'local files' _files     
 }
+
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word

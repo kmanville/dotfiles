@@ -3,3 +3,4 @@ set history save on
 set history expansion on
 set print pretty on
 set print array on
+#set locate-dsym 0

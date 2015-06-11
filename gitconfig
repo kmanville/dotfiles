@@ -2,8 +2,9 @@
 	status = auto
 	branch = auto
 	diff = auto
+	interactive = auto
 [user]
-	email = kmanville@gmail.com
+	email = kmanville@mitre.org
 	name = Keith Manville
 [branch]
 	autosetupmerge = true
@@ -14,11 +15,28 @@
 	c = commit
 	b = branch
 	co = checkout
+
+	a = add
+	au = add -u
+
 	d = diff
 	dc = diff --cached
-	lg = log -p
+	dl = "!git ll -1"
+	dlc = diff --cached HEAD^
+
+	lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	lgl = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lgg = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	flg  = log -u
+
 	ls-ignored = ls-files -o -i --exclude-standard
 	ignore = update-index --assume-unchanged
 	no-ignore = update-index --no-assume-unchanged
 [core]
 	editor = vim
+[push]
+	default = simple
+[http]
+	proxy = http://gatekeeper.mitre.org:80/
+[url "https://"]
+	insteadOf = git://
