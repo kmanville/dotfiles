@@ -31,6 +31,7 @@ alias open='xdg-open'
 
 unsetopt correct_all
 
+setopt interactivecomments
 function displab() {
 	disper -e -d DFP-4,DFP-2
 }
