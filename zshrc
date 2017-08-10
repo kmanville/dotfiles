@@ -56,13 +56,13 @@ function gpuoff() {
 function proxyon() {
 	export http_proxy=http://gatekeeper-w.mitre.org:80
 	export https_proxy=http://gatekeeper-w.mitre.org:80
-	export HTTP_PROXY=http://gatekeeper-w.mitre.org:80
+	export no_proxy=.mitre.org localhost
 }
 
 function proxyoff() {
 	unset http_proxy
 	unset https_proxy
-	unset HTTP_PROXY
+	unset no_proxy
 }
 
 function aurget { 
