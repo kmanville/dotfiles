@@ -70,18 +70,22 @@ function aurget {
     wget http://aur.archlinux.org/packages/$1/$1.tar.gz && tar -xzf $1.tar.gz && rm $1.tar.gz && cd $1 && makepkg -si
 }
 
+alias c='xclip -selection clipboard'
+alias v='xclip -selection clipboard -o'
+alias anyconnect='/opt/cisco/anyconnect/bin/vpnui'
 alias valgrind='valgrind --suppressions=/Users/kmanville/.valgrind.supp'
 alias gdb='/usr/bin/gdb'
 alias playdvd='mplayer -mouse-movements dvdnav://'
 alias pidgin='NSS_SSL_CBC_RANDOM_IV=0 pidgin'
 alias burn='wodim -v dev=/dev/sr0'
 #alias ipython='/usr/local/share/python/ipython'
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+#alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
 
-alias ls='ls -GFh'
+alias ls='ls -GFh --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
+alias grep='grep --color=auto'
 alias gr='grep -r'
 
 function gd(){
@@ -98,7 +102,6 @@ alias vim='vim -p'
 alias df='df -h'
 alias du='du -ch'
 alias mkdir='mkdir -p'
-alias tar='gtar -k '
 alias ssh='ssh -Y'
 
 #alias cmake='cmake -H. -Bbuild'
