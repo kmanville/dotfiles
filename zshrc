@@ -13,7 +13,7 @@ CASE_SENSITIVE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(history-substring-search mvn ant osx brew python rsync screen svn)
+plugins=(history-substring-search arch mvn ant osx brew python rsync screen svn)
 
 source $ZSH/oh-my-zsh.sh
 
