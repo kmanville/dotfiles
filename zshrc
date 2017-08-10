@@ -1,5 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 export CLICOLOR=1
+TERM='rxvt-unicode'
+COLORTERM='rxvt-unicode-256color'
 ZSH_THEME="fishy"
 
 # Set to this to use case-sensitive completion
