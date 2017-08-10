@@ -214,6 +214,7 @@ keycode 220 = XF86WebCam NoSymbol XF86WebCam
 keycode 221 =
 keycode 222 =
 keycode 223 = XF86Mail NoSymbol XF86Mail
+!fixed brightness backlight brightness buttons on dell xps 15
 !keycode 224 = XF86Messenger NoSymbol XF86Messenger
 !keycode 225 = XF86Search NoSymbol XF86Search
 keycode 224 = XF86MonBrightnessDown NoSymbol XF86MonBrightnessDown
