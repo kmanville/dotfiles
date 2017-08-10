@@ -32,8 +32,25 @@ alias open='xdg-open'
 unsetopt correct_all
 
 setopt interactivecomments
-function displab() {
-	disper -e -d DFP-4,DFP-2
+
+function disp_office() {
+	xrandr --output DP-1 --auto --scale 1.5x1.5
+}
+
+function disp_mobile() {
+	xrandr --output DP-1 --off
+}
+
+function gpuon() {
+	sudo tee /proc/acpi/bbswitch <<<ON
+	cat /proc/acpi/bbswitch
+	nvidia-smi
+}
+
+function gpuoff() {
+	sudo rmmod nvidia
+	sudo tee /proc/acpi/bbswitch <<<OFF
+	cat /proc/acpi/bbswitch
 }
 
 function proxyon() {
