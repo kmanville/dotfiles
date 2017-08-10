@@ -25,6 +25,10 @@ export NDKROOT=/usr/local/Cellar/android-ndk/r9c
 
 PROMPT="%2~: "
 
+alias chrome='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
+alias chromium='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
+alias open='xdg-open'
+
 unsetopt correct_all
 
 function displab() {
