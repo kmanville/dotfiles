@@ -169,7 +169,10 @@ nmap <leader>r :call RefreshAll()<cr>
 "
 "let g:atp_Python = "/usr/local/bin/python"
 let g:tex_flavor='latex'
-au BufWritePost *.tex silent call Tex_CompileLatex()
+"au BufWritePost *.tex silent call pdftexi2dvi %
+au BufWritePost *.tex silent exec "!pdftexi2dvi " . bufname("%")
+au BufWritePost *.tex :redraw!
+
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_ViewRule_ps = 'open -a Preview'
