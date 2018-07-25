@@ -10,7 +10,7 @@ urxvt*secondaryscroll:  true
 urxvt*loginShell:       true
 urxvt*internalBorder:   0
 urxvt*termName:         rxvt-unicode
-urxvt*font:             xft:Liberation Mono:pixelsize=20
+urxvt*font:             xft:Liberation Mono:pixelsize=24
 urxvt*print-pipe:       cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
 urxvt*secondaryScroll:  true
 urxvt*mapAlert:         true
