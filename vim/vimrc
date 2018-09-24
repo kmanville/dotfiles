@@ -83,7 +83,7 @@ nmap <leader>SO :wa<cr>:so ~/.vim-tmp/session/
 nmap <leader>SD :!rm ~/.vim-tmp/session/
 
 "misc options
-set clipboard=unnamed "use system clipboard
+set clipboard=unnamedplus "use system clipboard
 set linebreak "wrap  at word
 set scrolloff=3 "pad cursor location
 set number "show line numbers
