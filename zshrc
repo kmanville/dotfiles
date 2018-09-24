@@ -12,9 +12,9 @@ plugins=(history-substring-search arch mvn ant osx brew python rsync screen svn)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:.
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:/home/kmanville/.local/bin:.
 
-PROMPT="%2~: "
+PROMPT="%M:%2~: "
 
 unsetopt correct_all
 
@@ -72,6 +72,10 @@ function proxyoff() {
 	unset https_proxy
 	unset no_proxy
 }
+
+alias pip='pip3'
+alias python='python3'
+alias ipython='python3 -m IPython'
 
 alias chrome='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
 alias chromium='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
