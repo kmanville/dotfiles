@@ -173,6 +173,9 @@ let g:tex_flavor='latex'
 au BufWritePost *.tex silent exec "!pdftexi2dvi " . bufname("%")
 au BufWritePost *.tex :redraw!
 
+au BufWritePost *.md silent exec "!pandoc --variable urlcolor=blue -o " . bufname("%") . ".pdf " bufname("%")
+au BufWritePost *.md :redraw!
+
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_ViewRule_ps = 'open -a Preview'
