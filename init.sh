@@ -14,4 +14,4 @@ ln -s `pwd`/xinitrc ~/.xinitrc
 ln -s `pwd`/i3status.conf ~/.i3status.conf
 mkdir ~/.i3 && ln -s `pwd`/i3config ~/.i3/config
 mkdir ~/.vim/undo
-vim +BundleInstall +qall
+echo | echo | vim +PluginInstall +qall &> /dev/null
