@@ -13,6 +13,8 @@ filetype plugin indent on
 syntax on
 "colorscheme wombat 
 colorscheme mustang 
+"turn off background color erase
+set t_ut=
 
 set timeoutlen=1000 ttimeoutlen=0
 
