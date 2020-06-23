@@ -36,7 +36,5 @@
 	editor = vim
 [push]
 	default = simple
-[http]
-	proxy = http://gatekeeper.mitre.org:80/
 [url "https://"]
 	insteadOf = git://
