@@ -1,18 +1,17 @@
 ZSH=$HOME/.oh-my-zsh
 
 export CLICOLOR=1
-TERM='rxvt-unicode'
-COLORTERM='rxvt-unicode-256color'
+COLORTERM='xterm-256color'
 ZSH_THEME="fishy"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
-plugins=(history-substring-search arch mvn ant osx brew python rsync screen svn)
+plugins=(history-substring-search arch macos brew python rsync)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:/home/kmanville/.local/bin:.
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/texbin:/home/kmanville/.local/bin:/opt/homebrew/bin:.
 
 PROMPT="%M:%2~: "
 
@@ -89,7 +88,9 @@ alias anyconnect='/opt/cisco/anyconnect/bin/vpnui'
 alias valgrind='valgrind --suppressions=/home/kmanville/.valgrind.supp'
 
 #sane defaults
-alias ls='ls -Fh --color=auto'
+export LSCOLORS="EHfxcxdxBxegecabagacad"
+#alias ls='ls -Fh --color=auto'
+alias ls='ls -Gh'
 alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
@@ -108,3 +109,19 @@ alias ../../../='cd ../../../'
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
