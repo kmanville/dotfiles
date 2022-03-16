@@ -4,6 +4,8 @@ export CLICOLOR=1
 COLORTERM='xterm-256color'
 ZSH_THEME="fishy"
 
+export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
+
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
@@ -78,7 +80,7 @@ alias ipython='python3 -m IPython'
 
 alias chrome='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
 alias chromium='chromium --proxy-pac-url="http://proxypac.mitre.org/sys/proxy.pac"'
-alias open='xdg-open'
+#alias open='xdg-open'
 
 alias ip='sudo ip'
 alias wifi='sudo wifi-menu'
